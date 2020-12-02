@@ -1,0 +1,10 @@
+.mask,.popup-content{position: fixed;width: 100%;transform: translateY(100%);}
+.mask{left: 0;top: 0;height: 100%;background-color: rgba(0,0,0,0.5);z-index: 999;}
+.popup-content,.popup-content-center{background-color: #fff;z-index: 9999;transition: all 0.3s;}
+.popup-content {left: 0;bottom: 0;max-height: 70%;overflow-y: auto;}
+.popup-content-center{transition: none;}
+.popup-show {
+    .mask,.popup-content{transform: translateY(0);}
+    .popup-content {transition: all 0.3s;}
+    .popup-content-center{top: 50%;bottom: auto;transform: translateY(-50%);transition: none;}
+}

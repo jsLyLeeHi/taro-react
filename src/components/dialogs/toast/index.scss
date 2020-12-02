@@ -1,0 +1,31 @@
+.loading-box {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    .loadingIcon {
+        padding: 20px;
+        width: 160px;
+        height: 160px;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        border-radius: 10px;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .text{
+            margin-top: 30px;
+        }
+    }
+    .loadingToast {
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        border-radius: 10px;
+        color: #ffffff;
+        padding: 10px 20px;
+        max-width: 400px;
+    }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "taro-tailwind",
+  "version": "0.3.0",
+  "description": "A tailwind build which works in Taro",
+  "main": "removeUnsupported.js",
+  "bin": {
+    "taro-tailwind": "./build.js"
+  },
+  "scripts": {
+    "build": "node build.js"
+  },
+  "files": [
+    "dist",
+    "build.js",
+    "tailwind.config.js",
+    "tailwind.src.css"
+  ],
+  "repository": "https://github.com/windedge/taro-tailwind",
+  "keywords": [
+    "taro",
+    "tailwind",
+    "tailwindcss",
+    "styling",
+    "css"
+  ],
+  "author": "Igor Randjelovic",
+  "contributors": [
+    "xujl"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "postcss": "^7.0.17",
+    "tailwindcss": "^1.2.0"
+  },
+  "__npminstall_done": "Fri Oct 09 2020 14:43:02 GMT+0800 (中国标准时间)",
+  "_from": "taro-tailwind@0.3.0",
+  "_resolved": "https://registry.npm.taobao.org/taro-tailwind/download/taro-tailwind-0.3.0.tgz"
+}
