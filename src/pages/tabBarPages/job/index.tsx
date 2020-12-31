@@ -7,7 +7,7 @@ interface Index {
 }
 class Index extends Component {
   componentDidMount() {
-
+    
   }
   render() {
     return (

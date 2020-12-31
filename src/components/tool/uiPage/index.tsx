@@ -1,3 +1,4 @@
+import { getSystemInfoSync } from "@tarojs/taro"
 import React from 'react'
 import { ScrollView, View } from '@tarojs/components'
 import { getPageStyle } from '@static/js/until'
@@ -10,6 +11,7 @@ interface P {
     renderBottom?: React.ReactNode,
     style?: React.CSSProperties,
 }
+const wH = getSystemInfoSync().windowHeight
 /**
  *页面组件  用于放一些通用组件
  */
