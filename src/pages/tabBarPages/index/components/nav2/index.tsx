@@ -27,8 +27,8 @@ export default function Index(props: P) {
       <ToolImgCdn className="h-20 w-20" src="https://imgm.gmw.cn/attachement/jpg/site215/20200929/5388955273616208843.jpg"></ToolImgCdn>
     </View>
     <View className="ml-6 pt-1">
-      <View className="text-xl text-gray-900 leading-tight">ChitChat</View>
-      <View className="text-base text-gray-600 leading-normal">You have a new message!</View>
+      <View className="text-xl text-gray-900 leading-tight">确认弹出框</View>
+      <View className="text-base text-gray-600 leading-normal">请点击</View>
     </View>
   </View>
 }

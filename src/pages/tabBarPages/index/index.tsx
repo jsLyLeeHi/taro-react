@@ -1,6 +1,6 @@
 import React from 'react'
 // import { View } from '@tarojs/components'
-import { ToolPage, UiIndexSerch, ToolPagingDev, modal, ToolTabBar } from '@components'
+import { ToolPage, UiIndexSerch, ToolPagingDev, modal, ToolTabBar,notify } from '@components'
 import IndexBanner from './components/Banner'
 import IndexNav1 from './components/nav1'
 import IndexNav2 from './components/nav2'
@@ -45,7 +45,14 @@ export default function Index() {
         '/recruitApplyFor/index/9.png']} />
     </View>}>
       {(list: [] = []) => list.map((val, index) => (
-        <View key={index + 'item'} style={{ width: '100%', height: '100rpx', marginTop: '20px', backgroundColor: 'red' }}>{val}</View>
+        <View onClick={()=>{
+          notify.show({title:"啊实打实的"})
+          notify.show({title:"啊实打实的"})
+          notify.show({title:"啊实打实的"})
+          notify.show({title:"啊实打实的"})
+          notify.show({title:"啊实打实的"})
+          notify.show({title:"啊实打实的"})
+        }} key={index + 'item'} style={{ width: '100%', height: '100rpx', marginTop: '20px', backgroundColor: 'red' }}>{val}</View>
       ))}
     </ToolPagingDev>
   </ToolPage>

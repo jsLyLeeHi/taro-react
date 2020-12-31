@@ -31,17 +31,15 @@ const interceptor = function (chain) {
             const _resData = res.data
             if (_resData.success) {
                 return _resData
-            } else {
-                notify.show({ type: 'danger', title: _resData.message })
             }
-            throw _resData
-        } else {
-            notify.show({ type: 'danger', title: _state.message })
+            notify.show({ type: 'danger', title: _resData.message })
+            return _resData
         }
-        throw _state
-    }).catch((res)=>{
+        notify.show({ type: 'danger', title: _state.message })
+        return _state
+    }).catch((res) => {
         notify.show({ type: 'danger', title: res.errMsg })
-        throw res
+        return res
     })
 }
 Taro.addInterceptor(interceptor)

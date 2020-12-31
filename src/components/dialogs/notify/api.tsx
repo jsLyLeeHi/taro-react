@@ -26,7 +26,7 @@ class Dialog {
                 Ref.onIsShow(_param)
                 setTimeout(() => {
                     this.actionsStep()
-                }, (_param.timeout || 2000) + 520);
+                }, (_param.timeout || 2000) + 400);
             })
         } else {
             this.isInStep = false
