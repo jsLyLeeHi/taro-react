@@ -28,7 +28,7 @@ export default function Index(props: P) {
     onInit()
   }, [])
   function onToLower() {
-    if (hasEd) return
+    if (hasEd || loading) return
     setPageIndex(pageIndex + 1)
     _onGetList()
   }
@@ -51,7 +51,6 @@ function onGetList(props: P) {
   const _pageSize = props.pageSize || 10
 
   function _getList() {
-    if (loading) return
     _onGetList({
       _getList: props.getList,
       _pageIndex: pageIndex,
