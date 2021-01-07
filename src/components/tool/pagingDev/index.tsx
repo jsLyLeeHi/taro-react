@@ -26,9 +26,6 @@ export default function Index(props: P) {
   }
   useEffect(() => {
     onInit()
-    return () => {
-
-    }
   }, [])
   function onToLower() {
     if (hasEd) return
@@ -54,7 +51,7 @@ function onGetList(props: P) {
   const _pageSize = props.pageSize || 10
 
   function _getList() {
-    console.log("dataList")
+    if (loading) return
     _onGetList({
       _getList: props.getList,
       _pageIndex: pageIndex,
@@ -70,6 +67,7 @@ function onGetList(props: P) {
       }
     })
   }
+
 
   return {
     loading,
