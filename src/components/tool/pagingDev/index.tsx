@@ -35,7 +35,6 @@ export default function Index(props: P) {
     setPageIndex(pageIndex + 1)
     _onGetList()
   }
-  console.log(dataList)
   return <View className='pagingIndex' id="pagingIndexBox">
     {props.renderTop}
     <ScrollView scrollY onScrollToLower={onToLower} refresherEnabled={props.refresherEnabled}
@@ -55,6 +54,7 @@ function onGetList(props: P) {
   const _pageSize = props.pageSize || 10
 
   function _getList() {
+    console.log("dataList")
     _onGetList({
       _getList: props.getList,
       _pageIndex: pageIndex,

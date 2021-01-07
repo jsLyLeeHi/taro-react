@@ -13,7 +13,7 @@ export function calculatePageH(): number {
         let _H = _domBoxInfo.height - _domInfo.top
         if (_domBoxInfo.height === _domInfo.top) {
             //由于ScrollView层的默认高度设置为了0
-            //那么如果外层元素的高度等于ScrollView之于顶部的高度  那么此组件没有外部元素包裹，那么外层高度实际上为手机高度
+            //如果外层元素的高度等于ScrollView之于顶部的高度  那么此组件无论有没有外部元素包裹，高度实际上为手机高度
             _H = wH - _domInfo.top
         }
         setScrollH(_H)
