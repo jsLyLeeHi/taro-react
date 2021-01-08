@@ -20,10 +20,11 @@ interface P {
   noDataText?: string//没有数据时显示的提示文字
   hideNodata?: boolean //是否显示暂无数据组件
   refresherEnabled?: boolean   //是否开始下拉刷新
+  id: string//组件ID
 }
 
 export default function Index(props: P) {
-  const scrollH = calculatePageH()
+  const scrollH = calculatePageH(props.id)
   const { loading, setPageIndex, hasEd, pageIndex, setHasEd, _onGetList, dataList } = onGetList(props)
   function onInit() {
     setPageIndex(1)
@@ -38,10 +39,10 @@ export default function Index(props: P) {
     setPageIndex(pageIndex + 1)
     _onGetList()
   }
-  return <View className='pagingIndex' id="pagingIndexBox">
+  return <View className='pagingIndex' id={`${props.id}box`}>
     {props.renderTop}
     <ScrollView scrollY onScrollToLower={onToLower} refresherEnabled={props.refresherEnabled}
-      onRefresherRefresh={onInit} refresherTriggered={loading} id="pagingScrollBox" className='scrollBox'
+      onRefresherRefresh={onInit} refresherTriggered={loading} id={`${props.id}scrollbox`} className='scrollBox'
       style={{ height: `${scrollH}px` }}>
       {props.children ? props.children(dataList) : null}
       {props.hideNodata ? null : <ToolNoData loading={loading} list={dataList || []} hasEd={hasEd} noDataImgPath={props.noDataImgPath} noDataText={props.noDataText} />}

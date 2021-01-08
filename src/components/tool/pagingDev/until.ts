@@ -7,9 +7,9 @@ const wH = getSystemInfoSync().windowHeight
 /**
  * 动态计算Scroll高度返回一个高度的响应值
  */
-export function calculatePageH(): number {
+export function calculatePageH(id: string): number {
     const [_scrollH, setScrollH] = useState(0)
-    Promise.all([getDomInfo('#pagingIndexBox'), getDomInfo('#pagingScrollBox')]).then(([_domBoxInfo, _domInfo]) => {
+    Promise.all([getDomInfo(`#${id}box`), getDomInfo(`#${id}scrollbox`)]).then(([_domBoxInfo, _domInfo]) => {
         let _H = _domBoxInfo.height - _domInfo.top
         if (_domBoxInfo.height === _domInfo.top) {
             //由于ScrollView层的默认高度设置为了0

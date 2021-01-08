@@ -31,7 +31,7 @@ function getList(): Promise<{
 }
 export default function Index() {
   return <ToolPage renderBottom={<ToolTabBar />} style={{ paddingBottom: '100px' }}>
-    <ToolPagingDev refresherEnabled getList={getList} renderTop={<UiIndexSerch selectText={'贵阳'} placeholder='请输入想要找的岗位名称' />}>
+    <ToolPagingDev id='pageIndex' refresherEnabled getList={getList} renderTop={<UiIndexSerch selectText={'贵阳'} placeholder='请输入想要找的岗位名称' />}>
       {(_list) => <View>
         <IndexBanner list={[]} imgKey='photo' />
 
