@@ -48,7 +48,7 @@ export default function Index() {
           })
         }} list={['/recruitApplyFor/index/6.png', '/recruitApplyFor/index/7.png', '/recruitApplyFor/index/8.png',
           '/recruitApplyFor/index/9.png']} />
-        <View id="asasa">
+        <View>
           {(_list instanceof Array) ? _list.map((val, index) => (
             <View onClick={() => {
               notify.show({ title: "啊实打实的" })

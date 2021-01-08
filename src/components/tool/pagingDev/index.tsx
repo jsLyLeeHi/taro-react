@@ -6,7 +6,6 @@ import { calculatePageH } from "./until"
 import "./index.scss";
 
 interface P {
-  renderTop: any
   children: any
   getList: (upData) => Promise<{
     [proName: string]: any
@@ -15,12 +14,13 @@ interface P {
       list: any[]
     }
   }>//获取数据的函数
+  id: string//组件ID
+  renderTop?: any//组件顶部固定的栏目，不随着页面滚动
   pageSize?: number//每页数据数量
   noDataImgPath?: string //没有数据时显示的图片
   noDataText?: string//没有数据时显示的提示文字
   hideNodata?: boolean //是否显示暂无数据组件
   refresherEnabled?: boolean   //是否开始下拉刷新
-  id: string//组件ID
 }
 
 export default function Index(props: P) {

@@ -19,7 +19,7 @@ class Index extends Component<P> {
 		loading: false,
 		list: [],
 		hasEd: false,
-		noDataImgPath: 'img_cart_no_date.png',
+		noDataImgPath: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2419010027,1924767588&fm=26&gp=0.jpg',
 		noDataText: '暂无数据'
 	}
 	constructor(props) {
@@ -40,7 +40,7 @@ class Index extends Component<P> {
 							<Text className='text-small c-gray'>{hasEd ? '没有更多了' : '上拉加载更多'}</Text>
 							:
 							<View className='ac mt30 mb30 pt20 pb20'>
-								<ToolImgCdn src={noDataImgPath} size='220px*220px' />
+								<ToolImgCdn src={noDataImgPath} size='500px*220px' />
 								<View className='text-big c-gray pt20 mt20'>{noDataText}</View>
 							</View>
 						}
