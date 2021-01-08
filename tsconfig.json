@@ -10,6 +10,9 @@
       "@path/*": [
         "src/path/*"
       ],
+      "@api/*": [
+        "src/api/*"
+      ],
     },
     "target": "es2017",
     "module": "commonjs",

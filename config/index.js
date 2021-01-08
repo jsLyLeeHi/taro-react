@@ -14,7 +14,8 @@ const config = {
   alias: {
     '@components': path.resolve(__dirname, '..', 'src/components'),
     '@static': path.resolve(__dirname, '..', 'src/static'),
-    '@path': path.resolve(__dirname, '..', 'src/path')
+    '@path': path.resolve(__dirname, '..', 'src/path'),
+    '@api': path.resolve(__dirname, '..', 'src/api')
   },
   sourceRoot: 'src',
   outputRoot: `dist/${process.env.TARO_ENV}`,

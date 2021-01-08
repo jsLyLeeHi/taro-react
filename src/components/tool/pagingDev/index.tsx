@@ -27,17 +27,19 @@ export default function Index(props: P) {
   const scrollH = calculatePageH(props.id)
   const { loading, setPageIndex, hasEd, pageIndex, setHasEd, _onGetList, dataList } = onGetList(props)
   function onInit() {
-    setPageIndex(1)
+    let _pageIndex = 1
+    setPageIndex(_pageIndex)
     setHasEd(false)
-    _onGetList()
+    _onGetList(_pageIndex)
   }
   useEffect(() => {
     onInit()
   }, [])
   function onToLower() {
     if (hasEd || loading) return
-    setPageIndex(pageIndex + 1)
-    _onGetList()
+    let _pageIndex = pageIndex + 1
+    setPageIndex(_pageIndex)
+    _onGetList(_pageIndex)
   }
   return <View className='pagingIndex' id={`${props.id}box`}>
     {props.renderTop}
@@ -62,15 +64,15 @@ function onGetList(props: P) {
   const [hasEd, setHasEd] = useState(false)
   const _pageSize = props.pageSize || 10
 
-  function _getList() {
+  function _getList(_pIdx: number) {
     _onGetList({
       _getdata: props.getList,
-      _pageIndex: pageIndex,
+      _pageIndex: _pIdx,
       _pageSize,
       setLoading
     }).then(({ list: _dataList, PageRecord }) => {
       if ((_dataList instanceof Array)) {
-        let list: any[] = pageIndex > 1 ? dataList.concat(_dataList) : _dataList
+        let list: any[] = _pIdx > 1 ? dataList.concat(_dataList) : _dataList
         set_List(list)
         setHasEd(list.length >= PageRecord)
       } else {

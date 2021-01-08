@@ -6,27 +6,27 @@ import IndexNav1 from './components/nav1'
 import IndexNav2 from './components/nav2'
 import './index.scss'
 import { View } from '@tarojs/components'
+import { getJobList } from "@api/index"
 
 interface Index {
   state: {
 
-  }
+  }//
 }
-function getList(): Promise<{
-  data: {
-    PageRecord: number,
-    list: any[]
-  }
-}> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
+function getList(updata): Promise<{ data: { PageRecord: number, list: any[] } }> {
+  return new Promise((resolve, reject) => {
+    getJobList({
+      pageNo: updata.index,
+      pageSize: updata.size
+    }).then((res) => {
+      const _data = {
         data: {
-          PageRecord: 20,
-          list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+          PageRecord: res.data.totalElements,
+          list: res.data.dataList
         }
-      })
-    }, 800);
+      }
+      resolve(_data)
+    }, reject)
   })
 }
 export default function Index() {
@@ -57,7 +57,7 @@ export default function Index() {
               notify.show({ title: "啊实打实的" })
               notify.show({ title: "啊实打实的" })
               notify.show({ title: "啊实打实的" })
-            }} key={index + 'item'} style={{ width: '100%', height: '100rpx', marginTop: '20px', backgroundColor: 'red' }}>{val}</View>
+            }} key={index + 'item'} style={{ width: '100%', height: '100rpx', marginTop: '20px', backgroundColor: 'red' }}>{val.jobName}</View>
           )) : null}
         </View>
       </View>}

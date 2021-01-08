@@ -3,7 +3,7 @@ import taroStorage from '@static/js/storage'
 import GET_HTTP_STATUS from './HTTP_STATUS'
 import { notify } from '@components'
 
-const baseUrl = CONFIG.BASEURL
+const baseUrl = 'https://wechattest.yizhao.xin:8081'
 
 function getHeader(header: Object = {}) {
     let _header = {
