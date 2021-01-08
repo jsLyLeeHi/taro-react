@@ -12,7 +12,12 @@ interface Index {
 
   }
 }
-function getList() {
+function getList(): Promise<{
+  data: {
+    PageRecord: number,
+    list: any[]
+  }
+}> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({

@@ -8,10 +8,16 @@ import "./index.scss";
 interface P {
   renderTop: any
   children: any
-  getList: (upData) => Promise<any>
-  pageSize?: number
-  noDataImgPath?: string
-  noDataText?: string
+  getList: (upData) => Promise<{
+    [proName: string]: any
+    data: {
+      PageRecord: number,
+      list: any[]
+    }
+  }>//获取数据的函数
+  pageSize?: number//每页数据数量
+  noDataImgPath?: string //没有数据时显示的图片
+  noDataText?: string//没有数据时显示的提示文字
   hideNodata?: boolean //是否显示暂无数据组件
   refresherEnabled?: boolean   //是否开始下拉刷新
 }
@@ -35,14 +41,19 @@ export default function Index(props: P) {
   return <View className='pagingIndex' id="pagingIndexBox">
     {props.renderTop}
     <ScrollView scrollY onScrollToLower={onToLower} refresherEnabled={props.refresherEnabled}
-      onRefresherRefresh={onInit} refresherTriggered={loading} style={{ height: `${scrollH}px` }} id="pagingScrollBox" className='scrollBox'>
+      onRefresherRefresh={onInit} refresherTriggered={loading} id="pagingScrollBox" className='scrollBox'
+      style={{ height: `${scrollH}px` }}>
       {props.children ? props.children(dataList) : null}
       {props.hideNodata ? null : <ToolNoData loading={loading} list={dataList || []} hasEd={hasEd} noDataImgPath={props.noDataImgPath} noDataText={props.noDataText} />}
     </ScrollView>
   </View>
 }
 
-
+/**
+ * 获取数据的hooks函数
+ * 
+ * @param props P
+ */
 function onGetList(props: P) {
   let [pageIndex, setPageIndex] = useState(1)
   const [dataList, set_List] = useState<any[]>([])
@@ -52,7 +63,7 @@ function onGetList(props: P) {
 
   function _getList() {
     _onGetList({
-      _getList: props.getList,
+      _getdata: props.getList,
       _pageIndex: pageIndex,
       _pageSize,
       setLoading
@@ -74,13 +85,22 @@ function onGetList(props: P) {
     setPageIndex,
     pageIndex,
     setHasEd,
-    _onGetList: hasEd ? () => { } : _getList,
+    _onGetList: _getList,
     hasEd
   }
 }
 
+
+/**
+ * 
+ * @param params 
+ *  _getdata: (upData) => Promise<any>,//获取数据的函数
+ *  _pageIndex: number,//当前页码
+ *  _pageSize: number,//每页数据数量
+ *  setLoading: React.Dispatch<React.SetStateAction<boolean>> //设置loading状态的hooks函数
+ */
 function _onGetList(params: {
-  _getList: (upData) => Promise<any>,
+  _getdata: (upData) => Promise<any>,
   _pageIndex: number,
   _pageSize: number,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
@@ -89,9 +109,9 @@ function _onGetList(params: {
   PageRecord: number
 }> {
   return new Promise((resolve, reject) => {
-    if (typeof params._getList !== 'function') return reject()
+    if (typeof params._getdata !== 'function') return reject()
     params.setLoading(true)
-    params._getList({
+    params._getdata({
       index: params._pageIndex,
       size: params._pageSize
     }).then((res) => {
