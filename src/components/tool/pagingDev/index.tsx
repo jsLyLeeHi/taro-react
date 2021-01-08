@@ -23,6 +23,47 @@ interface P {
   refresherEnabled?: boolean   //是否开始下拉刷新
 }
 
+/**
+ * 
+ * @param renderTop?: any//组件顶部固定的栏目，不随着页面滚动
+ * @param pageSize?: number//每页数据数量
+ * @param noDataImgPath?: string //没有数据时显示的图片
+ * @param noDataText?: string//没有数据时显示的提示文字
+ * @param hideNodata?: boolean //是否显示暂无数据组件
+ * @param refresherEnabled?: boolean   //是否开始下拉刷新
+ * @param id: string//组件ID
+ * 
+ * 
+ * @param children
+ * ```tsx
+ *  <ToolPagingDev id='pageIndex' refresherEnabled getList={getList} renderTop={<UiIndexSerch selectText={'贵阳'} placeholder='请输入想要找的岗位名称' />}>
+ *      {(_list) => _list.map((val) => (
+ *        <View key={val.id}>{val.jobName}</View>
+ *     ))}
+ *  </ToolPagingDev>
+ * ```
+ * 
+ * @param getList 
+ *  ```tsx
+ * function getList(updata): Promise<{ data: { PageRecord: number, list: any[] } }> {
+ *  return new Promise((resolve, reject) => {
+ *   getJobList({
+ *     pageNo: updata.index,
+ *     pageSize: updata.size
+ *   }).then((res) => {
+ *     const _data = {
+ *       data: {
+ *         PageRecord: res.data.totalElements,
+ *         list: res.data.dataList
+ *       }
+ *     }
+ *     resolve(_data)
+ *   }, reject)
+ * })
+ *}
+ * ```
+ */
+
 export default function Index(props: P) {
   const scrollH = calculatePageH(props.id)
   const { loading, setPageIndex, hasEd, pageIndex, setHasEd, _onGetList, dataList } = onGetList(props)
