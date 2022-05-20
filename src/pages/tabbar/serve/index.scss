@@ -1,0 +1,55 @@
+.serve-page-top {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  height: 362px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  .serve-top-left {
+    padding-top: 210px;
+    padding-left: 78px;
+  }
+
+  .serve-top-icon {
+    position: absolute;
+    right: 27px;
+    bottom: 0;
+  }
+
+  .serve-top-mb {
+    margin-bottom: 14px;
+  }
+
+  .serve-top-name {
+    width: 400px;
+  }
+}
+
+.serve-page {
+  margin: 36px 27px;
+  border-radius: 18px;
+  padding: 36px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .serve-page-item {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 36px 0px;
+
+    .item-icon {
+      margin-bottom: 14px;
+    }
+
+    .serve-item-text {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 20px;
+    }
+  }
+}

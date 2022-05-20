@@ -3,7 +3,6 @@ module.exports = {
     NODE_ENV: '"production"'
   },
   defineConstants: {
-    BASEURL: JSON.stringify('https://wechat.yzhao.net:8085'),
   },
   mini: {},
   h5: {

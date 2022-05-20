@@ -1,0 +1,124 @@
+page {
+  /*调色板*/
+  --black: #000;
+  --white: #fff;
+
+  --gray-1: #f7f8fa;
+  --gray-2: #f2f3f5;
+  --gray-3: #ebedf0;
+  --gray-4: #dcdee0;
+  --gray-5: #c8c9cc;
+  --gray-6: #8B8B8B;
+  --gray-7: #646566;
+  --gray-8: #383838;
+
+  --red: #ee0a24;
+  --warning: #fe582b;
+  --blue: #1989fa;
+  --main-color: #6155CC;
+  --main-color1: #E0DDF5;
+  --reseda: #e5fffe;
+  --green: #07c160;
+  --orange: #ffc200;
+  --info-color: #2db7f5;
+  --color-dull: #724119;
+
+  --orange-dark: #ED7739;
+  --orange-light: #fffbe8;
+  /*渐变色*/
+  --gradient-red: linear-gradient(to right, #ff6034, #ee0a24);
+  --gradient-orange: linear-gradient(to right, #ffd01e, #ff8917);
+  --gradient-main: linear-gradient(138deg, #8F67E8 0%, #6357CC 100%);
+  --gradient-default: linear-gradient(135deg, #d4d4d4 0%, #d3d0eb 100%);
+
+
+  --button-primary-background-color: var(--gradient-main);
+  --button-default-background-color: var(--gradient-default);
+  --button-default-color: var(--main-color);
+  --primary-color: var(--main-color);
+  --success-color: var(--green);
+  --warning-color: var(--orange);
+  --error-color: var(--red);
+  --danger-color: var(--red);
+
+  /*组件颜色*/
+  --text-color: var(--gray-8);
+  --active-color: var(--gray-2);
+  --active-opacity: 0.7;
+  --disabled-opacity: 0.5;
+  --background-color: var(--gray-1);
+  --background-color-light: #fafafa;
+  --text-link-color: #576b95;
+
+  /*填充大小*/
+  --padding-base: 8px;
+  --padding-xs: calc(var(--padding-base) * 2);
+  --padding-sm: calc(var(--padding-base) * 3);
+  --padding-md: calc(var(--padding-base) * 4);
+  --padding-lg: calc(var(--padding-base) * 6);
+  --padding-xl: calc(var(--padding-base) * 8);
+
+  /*高*/
+  --height-xs: 32px;
+  --height-sm: 36px;
+  --height-md: 40px;
+  --height-lg: 44px;
+
+  --font-weight-bold: 500;
+
+  /*字体大小*/
+  --font-size-xxxs: 18px;
+  --font-size-xxs: 20px;
+  --font-size-xs: 22px;
+  --font-size-sm: 24px;
+  --font-size-sm-2: 26px;
+  --font-size-md: 28px;
+  --font-size-md-2: 30px;
+  --font-size-lg: 32px;
+  --font-size-lg-1: 36px;
+  --font-size-lg-2: 40px;
+  --font-size-lg-3: 50px;
+  --font-size-lg-4: 60px;
+  --font-size-lg-5: 70px;
+  --font-size-lg-6: 80px;
+  /*线条高*/
+  --line-height-xs: 28px;
+  --line-height-sm: 36px;
+  --line-height-md: 40px;
+  --line-height-lg: 44px;
+
+  --base-font-family: -apple-system,
+    blinkmacsystemfont,
+    'Helvetica Neue',
+    helvetica,
+    segoe ui,
+    arial,
+    roboto,
+    'PingFang SC',
+    'miui',
+    'Hiragino Sans GB',
+    'Microsoft Yahei',
+    sans-serif;
+  --price-integer-font-family: avenir-heavy,
+    pingfang sc,
+    helvetica neue,
+    arial,
+    sans-serif;
+
+  /*动画*/
+  --animation-duration-base: 0.3s;
+  --animation-duration-fast: 0.2s;
+  --animation-timing-function-enter: ease-out;
+  --animation-timing-function-exit: ease-in;
+
+  /*边框*/
+  --border-color: var(--gray-3);
+  --border-width-base: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-max: 999px;
+
+  --tabs-active-color: var(--main-color);
+  --sidebar-active-border-color: var(--main-color);
+}

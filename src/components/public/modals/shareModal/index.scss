@@ -1,0 +1,41 @@
+.share-popup {
+  width: 690px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #ffffff;
+  border-radius: 20px 20px 0px 0px;
+
+  .share-popup-title {
+    padding-top: 50px;
+  }
+
+  .share-popup-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--gray-2);
+    padding: 30px 0 20px 0;
+
+    .share-popup-item {
+      width: 33%;
+      margin: 20px 0;
+
+      .taroify-button__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .iconfont {
+        margin-bottom: 22px;
+      }
+    }
+  }
+
+  .share-popup-btn {
+    height: 86px;
+    line-height: 86px;
+  }
+}

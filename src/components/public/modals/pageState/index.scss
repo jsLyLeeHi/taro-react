@@ -1,0 +1,17 @@
+.page-state {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .page-state-image {
+    width: 400px;
+    height: 400px;
+  }
+}

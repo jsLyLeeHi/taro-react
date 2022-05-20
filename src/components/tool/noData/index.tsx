@@ -1,53 +1,28 @@
-
-import React, { Component } from 'react'
-import { View, Text, Block } from '@tarojs/components'
-import { ToolImgCdn } from '@components'
+import { View } from '@tarojs/components'
+import { Empty, Loading, Divider } from "@taroify/core"
+import React from "react"
+import { getImageSrc } from '@/path/tool/until'
 import './index.scss'
 
-
-type P = {
-	loading: boolean,
-	list: any,
-	hasEd: boolean,
-
-	noDataImgPath: string
-	noDataText: string
+function Index(props: { nodataSrc?: string, srcType?: boolean, netWorkError?: boolean, title?: string, loading?: boolean, list?: any[], total?: number }) {
+  return (
+    <View className="yz-nodata-box">
+      {props.netWorkError === true ? <Empty>
+        <Empty.Image src="network" />
+        <Empty.Description>{"请求出错了，请稍后再试"}</Empty.Description>
+      </Empty> : props.loading ? (
+        <View className="yz-nodata-loading"><Loading size="24px">加载中...</Loading></View>
+      ) : !props.list?.length ? (
+        <Empty>
+          <Empty.Image src={props.srcType == null ? props.nodataSrc : getImageSrc(props.nodataSrc, props.srcType)} />
+          <Empty.Description>{props.title || "暂无数据"}</Empty.Description>
+        </Empty>
+      ) : (Number(props.list?.length || 0)) < Number(props.total || 0) ? (
+        <Divider>加载更多</Divider>
+      ) : (Number(props.list?.length || 0)) === Number(props.total || 0) ? (
+        <Divider>我是有底线的</Divider>
+      ) : null}
+    </View>
+  )
 }
-class Index extends Component<P> {
-	static options = { addGlobalClass: true }
-	static defaultProps = {
-		loading: false,
-		list: [],
-		hasEd: false,
-		noDataImgPath: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2419010027,1924767588&fm=26&gp=0.jpg',
-		noDataText: '暂无数据'
-	}
-	constructor(props) {
-		super(props);
-	}
-	state = {
-
-	}
-	render() {
-		let { loading, list, hasEd, noDataImgPath, noDataText } = this.props;
-		return (
-			<View className='nodata-box mb20'>
-				{loading ?
-					<Text className='text-gray'>加载中...</Text>
-					:
-					<Block>
-						{list.length > 0 ?
-							<Text className='text-small c-gray'>{hasEd ? '没有更多了' : '上拉加载更多'}</Text>
-							:
-							<View className='ac mt30 mb30 pt20 pb20'>
-								<ToolImgCdn src={noDataImgPath} size='500px*220px' />
-								<View className='text-big c-gray pt20 mt20'>{noDataText}</View>
-							</View>
-						}
-					</Block>
-				}
-			</View>
-		)
-	}
-}
-export default Index;
+export default React.memo(Index)

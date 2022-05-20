@@ -1,10 +1,10 @@
-.nodata-box {
-    width: 100%;
+.yz-nodata-box {
+  padding: 12px;
+
+  .yz-nodata-loading {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    font-size: 28px;
-    color: #999999;
-    text-align: center;
+    justify-content: center;
+    padding: 20px;
+  }
 }

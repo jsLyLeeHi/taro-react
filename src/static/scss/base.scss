@@ -1,29 +1,101 @@
-$bg-color-main:#39ccc5 !default;
-$bg-color-write:#ffffff !default;
-$bg-color-gray:#ebebeb !default;
-$bg-color-grayer:#f5f5f5 !default;
-$bg-color-auto:rgb(246,249,255) !default;
-$bg-color-mask:rgba(0,0,0,0.4) !default;
+.f-weight-bold {font-weight: 600;}
+.t-right {text-align: right;}
+.t-center {text-align: center;}
+/*删除文字*/
+.t-decoration {text-decoration: line-through}
+.b-radius {border-radius: 4px;}
+/*底部 单双按钮*/
+.bottom-btns{display: flex;justify-content: space-around;position: fixed;left: 0;bottom: 0;width: calc(100vw - 40px);padding: 0 20px;padding-bottom: constant(safe-area-inset-bottom) !important;padding-bottom: env(safe-area-inset-bottom) !important;.taroify-button {flex: 1;margin: 20px 10px;}}
+.iphonex-bottom{padding-bottom: constant(safe-area-inset-bottom) !important;padding-bottom: env(safe-area-inset-bottom) !important;}
+/* 一行文字显示 */
+.one-ellipsis{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+/* 二行文字显示 */
+.two-ellipsis{word-break: break-all;text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+/* 三行文字显示 */
+.three-ellipsis{word-break: break-all;text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;}
 
-$border-color-main:#39ccc5 !default;
-$border-color-write:#ffffff !default;
-$border-color-gray:#ebebeb !default;
-$border-color-grayer:#f5f5f5 !default;
-$border-color-auto:rgb(246,249,255) !default;
-$border-color-mask:rgba(0,0,0,0.4) !default;
+/* 字号  */
+.s-xxxs {font-size: var(--font-size-xxxs);}
+.s-xxs {font-size: var(--font-size-xxs);}
+.s-xs {font-size: var(--font-size-xs);}
+.s-sm {font-size: var(--font-size-sm);}
+.s-sm-2 {font-size: var(--font-size-sm-2);}
+.s-md {font-size: var(--font-size-md);}
+.s-md-2 {font-size: var(--font-size-md-2);}
+.s-lg {font-size: var(--font-size-lg);}
+.s-lg-1 {font-size: var(--font-size-lg-1);}
+.s-lg-2 {font-size: var(--font-size-lg-2);}
+.s-lg-3 {font-size: var(--font-size-lg-3);}
+.s-lg-4 {font-size: var(--font-size-lg-4);}
+.s-lg-5 {font-size: var(--font-size-lg-5);}
+.s-lg-6 {font-size: var(--font-size-lg-6);}
+
+/*文本颜色  */
+.c-black {color: var(--black);}
+.c-white {color: var(--white);}
+.c-blue {color: var(--blue);}
+.c-red {color: var(--red);}
+.c-warning {color: var(--warning);}
+.c-main {color: var(--main-color);}
+.c-main1 {color: var(--main-color1);}
+.c-reseda {color: var(--reseda);}
+.c-green {color: var(--green);}
+.c-orange {color: var(--orange);}
+.c-info {color: var(--info-color);}
+.c-orange-dark {color: var(--orange-dark);}
+.c-orange-light {color: var(--orange-light);}
+.c-dull {color: var(--color-dull);}
+.c-gray-1 {color: var(--gray-1);}
+.c-gray-2 {color: var(--gray-2);}
+.c-gray-3 {color: var(--gray-3);}
+.c-gray-4 {color: var(--gray-4);}
+.c-gray-5 {color: var(--gray-5);}
+.c-gray-6 {color: var(--gray-6);}
+.c-gray-7 {color: var(--gray-7);}
+.c-gray-8 {color: var(--gray-8);}
+
+/*背景颜色  */
+.bg-black {background-color: var(--black);}
+.bg-white {background-color: var(--white);}
+.bg-blue {background-color: var(--blue);}
+.bg-red {background-color: var(--red);}
+.bg-warning {background-color: var(--warning);}
+.bg-main {background-color: var(--main-color);}
+.bg-main1 {background-color: var(--main-color1);}
+.bg-reseda {background-color: var(--reseda);}
+.bg-green {background-color: var(--green);}
+.bg-orange {background-color: var(--orange);}
+.bg-info {background-color: var(--info-color);}
+.bg-dull {background-color: var(--color-dull);}
+.bg-orange-dark {background-color: var(--orange-dark);}
+.bg-orange-light {background-color: var(--orange-light);}
+.bg-gray-1 {background-color: var(--gray-1);}
+.bg-gray-2 {background-color: var(--gray-2);}
+.bg-gray-3 {background-color: var(--gray-3);}
+.bg-gray-4 {background-color: var(--gray-4);}
+.bg-gray-5 {background-color: var(--gray-5);}
+.bg-gray-6 {background-color: var(--gray-6);}
+.bg-gray-7 {background-color: var(--gray-7);}
+.bg-gray-8 {background-color: var(--gray-8);}
+
+.border-main {border: 1px solid var(--main-color);}
+.border-gray-5 {border: 1px solid var(--gray-5);}
 
 
-$font-color-main:#323232 !default;
-$font-color-black:#1a1a1a !default;
-$font-color-write:#ffffff !default;
-$font-color-gray:#4d4d4d !default;
-$font-color-red:#fe582b !default;
 
 
-$font-size-title:28px !default;
-$font-size-larger:26px !default;
-$font-size-auto:24px !default;
-$font-size-label:22px !default;
-$font-size-small:18px !default;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,0 +1,24 @@
+.pay-word {
+  border-radius: 14px;
+  text-align: center;
+  overflow: hidden;
+  padding: 20px;
+
+  .pay-popup-modal-scroll {
+    width: 580px;
+    height: auto;
+  }
+
+  .pay-password {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .pay-find {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 30px;
+  }
+}

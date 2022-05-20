@@ -1,19 +1,21 @@
-@import "@static/scss/base.scss";
-.tabbar-box {
-    width: 100%;
-    height: 100px;
-    background-color: $bg-color-gray;
+.xm-tabbar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  .xm-tabbar-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
-    .item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        flex: 1;
-        height: 100%;
-        font-size: $font-size-larger;
-    }
+    padding: 10px 0;
+  }
 }

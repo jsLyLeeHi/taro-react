@@ -1,38 +1,45 @@
-import React, { useEffect, useState } from 'react'
-import { View } from '@tarojs/components'
-import { ToolImgCdn } from '@components'
-import { Router } from '@path/router'
-import Taro from '@tarojs/taro'
+import Taro from "@tarojs/taro"
+import { View } from '@tarojs/components';
+import YzImage from '@components/tool/image';
+import { observer } from 'mobx-react'
+import AppJson from "@/app.config";
+import { deepClone } from '@/path/tool/until';
+import { BaseRouter } from "@path/router"
+import React, { useRef } from "react"
+
 import './index.scss'
-const AppJson = require('../../../app.config')
-/**
- * 底部导航栏组件
- * 自动读取当前项目的app.config中的底部导航栏配置
- */
-export default function Index() {
-    const tabBarConfig = AppJson.default ? AppJson.default.tabBar : {}
-    const [nowPage, setNowPage] = useState<string>('')
-    const [isTabBarPage, setIsTabBarPage] = useState<Boolean>(false)
 
-    useEffect(() => {
-        const _pageList = Taro.getCurrentPages()
-        const _nowPage = _pageList[_pageList.length > 0 ? _pageList.length - 1 : 0]
-        setNowPage(_nowPage.route)
-        const _item = tabBarConfig.list ? tabBarConfig.list.find(val => val.pagePath === _nowPage.route) : []
-        setIsTabBarPage(!!_item)
-    }, [])
-    return isTabBarPage ? <View className='tabbar-box' style={{ backgroundColor: tabBarConfig.backgroundColor || '' }}>
-        {tabBarConfig.list ? tabBarConfig.list.map((val, index) => {
-            const selected = val.pagePath === nowPage
-            return <View className='item' key={index} onClick={() => { Router.switchTab({ url: `/${val.pagePath}` }) }}>
-                <ToolImgCdn src={getTabBarImg(selected ? val.selectedIconPath : val.iconPath)} size='40px*40px' />
-                <View className='text' style={{ color: selected ? tabBarConfig.selectedColor : tabBarConfig.color }}>{val.text}</View>
-            </View>
-        }) : null}
-    </View> : null
+/** 底部导航栏组件二次封装*/
+function Index() {
+  const tabBarConfig = useRef(deepClone(AppJson)?.tabBar)
+  const _list = useRef(tabBarConfig.current?.list || [])
+  const nowPage = useRef(getNowPage());
+  /**获取tabbar栏目的图片 */
+  function getTabBarImg(image: string) {
+    const _src = image.split("tabBar/")[1]
+    const requireContext = require(`@/static/images/tabBar/` + _src);
+    return requireContext
+  }
+  function onRouter(url: string) {
+    BaseRouter.switch({
+      url: `/${url}`
+    })
+  }
+
+  function getNowPage() {
+    const _p = Taro.getCurrentPages()
+    return _p[_p.length > 0 ? _p.length - 1 : 0]
+  }
+  return (
+    <View className="xm-tabbar bg-gray-2 iphonex-bottom">
+      {_list.current.map((val, i) => (
+        <View key={i} className="xm-tabbar-item s-md" onClick={() => onRouter(val.pagePath)}>
+          <YzImage size="40*40" src={getTabBarImg(val.pagePath === nowPage.current.route ? val.selectedIconPath : val.iconPath)} />
+          <View style={`color: ${val.pagePath === nowPage.current.route ? tabBarConfig.current.selectedColor : tabBarConfig.current.color};`}>{val.text}</View>
+        </View>
+      ))}
+    </View>
+  )
 }
 
-function getTabBarImg(src) {
-    const requireContext = require.context('../../../', true, /\.(png|jpg)$/);
-    return requireContext(src).default
-}
+export default React.memo(observer(Index))

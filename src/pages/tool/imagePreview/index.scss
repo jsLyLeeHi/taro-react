@@ -1,0 +1,33 @@
+.image-preview {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  swiper {
+    height: 100vh;
+
+    swiper-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .image-preview-swiper {
+    width: 100%;
+
+    .taroify-swiper__track {
+      align-items: center;
+    }
+
+    .image-preview-img {
+      width: 100%;
+      max-height: 750px;
+    }
+
+    .image-preview-count {
+      padding: 47px 54px;
+    }
+  }
+}

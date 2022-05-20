@@ -1,0 +1,49 @@
+.xm-navbar-box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .xm-navbar-icon {
+    padding-left: 20px;
+    padding-right: 80px;
+    height: 100%;
+    // background-color: rgba($color: #000000, $alpha: .6);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 6px;
+  }
+
+  .xm-navbar-title {
+    width: 300px;
+    text-align: center;
+  }
+}
+
+.xm-navbar-tabbar-box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 20px;
+
+  .xm-navbar-title {
+    text-align: center;
+  }
+}
+
+.xm-navbar-fixed {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}

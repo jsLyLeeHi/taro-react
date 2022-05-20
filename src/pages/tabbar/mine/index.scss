@@ -1,0 +1,54 @@
+.mine-page-top {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  height: 362px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mine-header {
+  margin: 0 64px;
+  padding: 20px 50px;
+  margin-top: -68px;
+  position: relative;
+  z-index: 2;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  .header-img {
+    width: 128px;
+    height: 128px;
+    border-radius: 64px;
+    margin-right: 20px;
+  }
+
+  .mine-header-text {
+    width: 400px;
+  }
+}
+
+.mine-item {
+  margin: 12px 26px;
+  padding: 28px 38px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+
+  .mine-item-iconbox {
+    margin-right: 46px;
+    position: relative;
+
+    .item-icon-dot {
+      position: absolute;
+      background-color: red;
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      right: -10px;
+      top: -10px;
+    }
+  }
+}

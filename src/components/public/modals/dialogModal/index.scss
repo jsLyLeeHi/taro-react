@@ -1,0 +1,51 @@
+.xm-dialog-box {
+
+  .taroify-popup {
+    overflow: visible;
+  }
+
+  .xm-dialog {
+    width: 575px;
+
+    .dialog-image-box {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      margin-top: -120px;
+    }
+
+    .dialog-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 34px;
+    }
+
+    .dialog-content {
+      margin-top: 20px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .dialog-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 42px;
+      margin-bottom: 42px;
+
+      .dialog-btn {
+        width: 220px;
+        height: 62px;
+
+        &:nth-child(2) {
+          margin-left: 60px;
+        }
+      }
+    }
+  }
+
+  .taroify-popup--rounded {
+    border-radius: 20px;
+  }
+}
