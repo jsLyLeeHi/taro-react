@@ -26,6 +26,7 @@ const config = {
     options: {}
   },
   framework: 'react',
+  compiler: 'webpack5',
   // sass: {
   //   resource: path.resolve(__dirname, '..', 'src/static/scss/variable.scss')
   // },
