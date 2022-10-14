@@ -1,11 +1,17 @@
 .xm-dialog-box {
 
+  .taroify-popup--center {
+    width: 600px;
+  }
+
   .taroify-popup {
     overflow: visible;
+    display: flex;
+    justify-content: center;
   }
 
   .xm-dialog {
-    width: 575px;
+    width: 100%;
 
     .dialog-image-box {
       margin-bottom: 20px;
@@ -19,11 +25,15 @@
       align-items: center;
       justify-content: center;
       margin-top: 34px;
+      padding: 0 20px;
     }
 
     .dialog-content {
       margin-top: 20px;
       padding: 0 20px;
+      line-height: 50px;
+      max-height: 500px;
+      overflow-y: scroll;
       text-align: center;
     }
 
