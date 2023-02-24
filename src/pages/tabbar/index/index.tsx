@@ -65,8 +65,8 @@ function Index() {
       })
     }}>XmPasswordModal</Button>
     <Button onClick={() => {
-      Router.toUserLogin({ a: "asasas" }).then((res) => {
-        console.log(res, "哈哈哈哈");
+      Router.toUserLogin({ index: 1 }).then((res) => {
+        console.log(res, "index页面返回了");
       })
     }}>路由跳转</Button>
   </XmPullRefresh>

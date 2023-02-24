@@ -29,9 +29,8 @@ class MyRouter extends MyCompose {
     return new Promise<T | null>(async (resolve, reject) => {
       if (options.before instanceof Function) await options.before()
       this.runUse({ router: params.url, data: options.data || null }).then(() => {
-        Taro.navigateTo({
-          url: pageData.set(params.url, options.data || null, resolve).url,
-        }).catch(reject)
+        const { url } = pageData.set(params.url, options.data || null, resolve)
+        Taro.navigateTo({ url }).catch(reject)
       }, reject)
     })
   }
@@ -44,9 +43,8 @@ class MyRouter extends MyCompose {
     return new Promise<T | null>(async (resolve, reject) => {
       if (options.before instanceof Function) await options.before()
       this.runUse({ router: params.url, data: options.data || null }).then(() => {
-        Taro.redirectTo({
-          url: pageData.set(params.url, options.data || null, resolve).url,
-        }).catch(reject)
+        const { url } = pageData.set(params.url, options.data || null, resolve)
+        Taro.redirectTo({ url }).catch(reject)
       }, reject)
     })
   }
@@ -59,9 +57,8 @@ class MyRouter extends MyCompose {
     return new Promise<T | null>(async (resolve, reject) => {
       if (options.before instanceof Function) await options.before()
       this.runUse({ router: params.url, data: options.data || null }).then(() => {
-        Taro.reLaunch({
-          url: pageData.set(params.url, options.data || null, resolve).url,
-        }).catch(reject)
+        const { url } = pageData.set(params.url, options.data || null, resolve)
+        Taro.reLaunch({ url }).catch(reject)
       }, reject)
     })
   }
@@ -73,11 +70,7 @@ class MyRouter extends MyCompose {
     return new Promise<boolean>(async (resolve, reject) => {
       if (options.before instanceof Function) await options.before()
       this.runUse({ router: params.url, data: null }).then(() => {
-        Taro.switchTab({
-          url: params.url,
-        }).then(() => {
-          resolve(true)
-        }).catch(reject)
+        Taro.switchTab({ url: params.url }).then(() => resolve(true)).catch(reject)
       }, reject)
     })
   }

@@ -3,7 +3,7 @@ import { deepClone, getUUid } from "@path/tool/until"
 import { changeRouterUrl, getAppletParams } from "./until"
 import { getPageInfo } from "@/path/acrossAPI"
 import { getKeyInMap } from "./until"
-/**路由的标识符key值 */
+/**全局路由的标识符key值 */
 const routerKey = getUUid()
 //原始路由参数
 interface TypeRouterParams { [key: string]: any }
@@ -40,9 +40,7 @@ function setBackData<T>(data: any): T {
   const _params = getAppletParams() as unknown
   const TaroRouterParams: TypeRouterParams = (_params as TypeRouterParams) || { [routerKey]: "", data: null }
   const item = routerPageData.get(TaroRouterParams[routerKey])
-  if (item) {
-    item["backData"] = data
-  }
+  if (item) item["backData"] = data
   return data
 }
 /**监听页面返回 */
