@@ -1,26 +1,69 @@
-import { XmNavbar, XmPullRefresh, XmTabbar } from "@/components/tool";
-import { getImageSrc } from "@/path/tool/until";
+import { XmPullRefresh, XmTabbar } from "@/components/tool";
 import { observer } from "mobx-react";
-import { View } from '@tarojs/components'
 import React, { Fragment } from "react";
-import { XmIcon } from "@/components/ui";
-import { userStore } from "@/store";
-import "./index.scss";
+import { Button } from "@taroify/core"
+import { XmDialogModal, XmToast, XmPickerModal, XmDateTimePicker, XmActionSheetModal, XmPasswordModal,XmNotify } from "@/components/public";
 function Index() {
-  
-  return <>
-    <XmNavbar color="#fff" title="酒店服务" />
-    <View className="serve-page-top" style={{ backgroundImage: `url("${getImageSrc("page-top/1.png", true)}")` }}>
-      <View className="serve-top-left c-white">
-        <View className="serve-top-mb serve-top-name two-ellipsis">Hi，{userStore.userInfo.nickName}</View>
-        <View>您需要什么服务呢？</View>
-      </View>
-      <XmIcon className="serve-top-icon" icon="jiudianfuwuchahua" size="249*187" />
-    </View>
-    <XmPullRefresh navigationStyle="custom" className="bg-gray-2" renderButtom={<XmTabbar />}>
-      
-    </XmPullRefresh>
-  </>
+  return <XmPullRefresh renderButtom={<XmTabbar />}>
+    <Button onClick={() => {
+      XmDialogModal({
+        title: "哈哈",
+        content: "呵呵"
+      })
+    }}>XmDialogModal</Button>
+    <Button onClick={() => {
+      XmToast.open("哈哈哈")
+    }}>XmToast.open</Button>
+    <Button onClick={() => {
+      XmToast.loading("加载中")
+    }}>XmToast.loading</Button>
+    <Button onClick={() => {
+      XmToast.success("成功")
+    }}>XmToast.success</Button>
+    <Button onClick={() => {
+      XmNotify.success("成功")
+    }}>XmNotify.success</Button>
+    <Button onClick={() => {
+      XmPickerModal({
+        title: "选择性别",
+        list: [["1", "2", "3"]]
+      }).then((res) => {
+        console.log(res);
+      })
+    }}>XmPickerModal</Button>
+    <Button onClick={() => {
+      XmDateTimePicker({
+        title: "选择时间",
+      }).then((res) => {
+        console.log(res);
+      })
+    }}>XmPickerModal</Button>
+    <Button onClick={() => {
+      XmActionSheetModal({
+        title: "选择xx",
+        list: [
+          { name: "哈哈1" },
+          { name: "哈哈2" },
+          { name: "哈哈3" }
+        ]
+      }).then((res) => {
+        console.log(res);
+      })
+    }}>XmActionSheetModal</Button>
+    <Button onClick={() => {
+      XmPasswordModal({
+        title: "选择xx",
+        onAffirm(ev) {
+          console.log(ev);
+          ev.setLoading(true)
+          setTimeout(() => {
+            ev.onClose()
+            ev.setLoading(false)
+          }, 1000);
+        }
+      })
+    }}>XmPasswordModal</Button>
+  </XmPullRefresh>
 }
 
 const Higher = React.memo(observer(Index));

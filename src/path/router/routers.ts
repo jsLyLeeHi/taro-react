@@ -21,6 +21,6 @@ export function toTabbarMine() {
 
 //--user-用户页面
 /**跳转到 user/login 用户登录 页面 */
-export function toUserLogin() {
-  return Router.navigate<null>({ url: "/pages/user/login/index" })
+export function toUserLogin(params?: any) {
+  return Router.navigate<null>({ url: "/pages/user/login/index" }, { data: params })
 }

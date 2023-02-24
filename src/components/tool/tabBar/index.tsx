@@ -5,7 +5,7 @@ import { observer } from 'mobx-react'
 import AppJson from "@/app.config";
 import { deepClone } from '@/path/tool/until';
 import { BaseRouter } from "@path/router"
-import React, { useRef } from "react"
+import React, { useEffect, useRef } from "react"
 
 import './index.scss'
 
@@ -25,6 +25,11 @@ function Index() {
       url: `/${url}`
     })
   }
+  useEffect(() => {
+    if (Taro.ENV_TYPE.ALIPAY === Taro.getEnv()) {
+      Taro.hideTabBar()
+    }
+  }, [])
 
   function getNowPage() {
     const _p = Taro.getCurrentPages()

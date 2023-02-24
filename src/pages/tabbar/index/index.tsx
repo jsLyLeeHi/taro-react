@@ -2,7 +2,8 @@ import { XmPullRefresh, XmTabbar } from "@/components/tool";
 import { observer } from "mobx-react";
 import React, { Fragment } from "react";
 import { Button } from "@taroify/core"
-import { XmDialogModal, XmToast, XmPickerModal, XmDateTimePicker, XmActionSheetModal, XmPasswordModal,XmNotify } from "@/components/public";
+import { XmDialogModal, XmToast, XmPickerModal, XmDateTimePicker, XmActionSheetModal, XmPasswordModal, XmNotify } from "@/components/public";
+import { Router } from "@/path/router";
 function Index() {
   return <XmPullRefresh renderButtom={<XmTabbar />}>
     <Button onClick={() => {
@@ -63,6 +64,11 @@ function Index() {
         }
       })
     }}>XmPasswordModal</Button>
+    <Button onClick={() => {
+      Router.toUserLogin({ a: "asasas" }).then((res) => {
+        console.log(res, "哈哈哈哈");
+      })
+    }}>路由跳转</Button>
   </XmPullRefresh>
 }
 

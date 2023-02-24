@@ -70,14 +70,11 @@ Current['_page'] = Current.page
 Object.defineProperties(Current, {
   page: {
     set: function (page) {
-      if (page === undefined || page === null) {
-        this._page = page
-        return
-      }
+      if (page == null) return this._page = page
       const _pageData = get()
-      const _fn = page.onUnload
+      const originOnUnload = page.onUnload
       page.onUnload = function () {
-        if (_fn instanceof Function) _fn(...arguments)
+        originOnUnload && originOnUnload.apply(this)
         monitorPageBack(_pageData)
       }
       this._page = page

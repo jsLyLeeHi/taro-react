@@ -4,6 +4,9 @@ import React, { Fragment, useState } from "react";
 import { Button } from "@taroify/core"
 import { BaseRouter } from "@path/router"
 function Index() {
+  const RouterData = BaseRouter.getData()
+  console.log(RouterData,"RouterDataRouterDataRouterDataRouterData");
+
   const [loginStatic, setloginStatic] = useState(false)
   return <XmPullRefresh>
     {loginStatic ? "已登录" : "未登录"}

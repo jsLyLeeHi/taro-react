@@ -7,7 +7,9 @@ import Taro from "@tarojs/taro"
 export function getAppletParams() {
 	const _pages = Taro.getCurrentPages()
 	const _now = _pages[_pages.length - 1]
-	return _now.options || null
+  console.log(_now);
+  
+	return _now.$taroParams || null
 }
 /**将原始路由URL参数中加入路由标记 */
 export function changeRouterUrl(url: string, key: string) {

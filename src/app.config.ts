@@ -1,8 +1,8 @@
 export const mainPageList = [
   //tabbar页面
   { url: 'pages/tabbar/index/index', needLogin: false },//介绍
-  { url: 'pages/tabbar/serve/index', needLogin: true },//服务
-  { url: 'pages/tabbar/mine/index', needLogin: true },//个人中心
+  { url: 'pages/tabbar/serve/index', needLogin: false },//服务
+  { url: 'pages/tabbar/mine/index', needLogin: false },//个人中心
   //用户相关
   { url: 'pages/user/login/index', needLogin: false },//登录页面
   //工具页面
