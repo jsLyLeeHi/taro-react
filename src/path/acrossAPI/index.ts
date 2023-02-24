@@ -15,12 +15,12 @@ export function getPageInfo() {
   const list = _pages.map(val => {
     return {
       url: "/" + val?.route,
-      routeID: val.$taroParams.$taroTimestamp
+      routeID: val?.$taroParams?.$taroTimestamp
     }
   })
   return {
     route: "/" + _now?.route,
-    routeID: _now.$taroParams.$taroTimestamp,
+    routeID: _now?.$taroParams?.$taroTimestamp,
     list
   }
 }
